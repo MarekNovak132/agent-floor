@@ -1,0 +1,89 @@
+# Bloomreach Jinja2 Skill
+
+Tento skill obsahuje best practices a vzory pro Jinja2 personalizaci v Bloomreach Engagement.
+
+## Základní syntaxe
+
+### Zákaznická data
+```jinja
+{{ customer.first_name | default("zákazníku") }}
+{{ customer.last_name | default("") }}
+{{ customer.email }}
+```
+
+### Customer properties (custom atributy)
+```jinja
+{{ customer["property_name"] | default("výchozí hodnota") }}
+```
+
+### Podmíněné zobrazení
+```jinja
+{% if customer["vip"] == true %}
+  Exkluzivní nabídka pro VIP zákazníky
+{% elif customer["last_purchase_days_ago"] < 90 %}
+  Vítejte zpět!
+{% else %}
+  Chybí vám...
+{% endif %}
+```
+
+### Datum a čas
+```jinja
+{{ "now" | datetime("d.M.yyyy") }}
+{{ customer["last_purchase_date"] | datetime("d.M.yyyy") | default("") }}
+```
+
+### Čísla a měna
+```jinja
+{{ customer["total_spend"] | number_format(0, ",", " ") }} Kč
+```
+
+### Doporučení produktů
+```jinja
+{% set recs = recommendations("catalog_id", 3) %}
+{% for item in recs %}
+  {{ item.name }} – {{ item.price }} Kč
+{% endfor %}
+```
+
+### Iterace přes seznam
+```jinja
+{% for item in customer["wishlist"] | default([]) %}
+  {{ item.name }}
+{% endfor %}
+```
+
+## Fallback pravidla
+- Vždy používej `| default("hodnota")` pro user-facing text
+- Pro čísla: `| default(0)`
+- Pro listy: `| default([])`
+- Pro booleany: `| default(false)`
+
+## Časté use cases
+
+### Personalizovaný pozdrav podle denní doby
+```jinja
+{% set hour = "now" | datetime("H") | int %}
+{% if hour < 12 %}Dobré ráno{% elif hour < 18 %}Dobré odpoledne{% else %}Dobrý večer{% endif %},
+{{ customer.first_name | default("zákazníku") }}!
+```
+
+### Countdown timer
+```jinja
+{% set deadline = "2024-12-31 23:59:59" | strtotime %}
+{% set now = "now" | strtotime %}
+{% set diff = deadline - now %}
+Zbývá {{ (diff / 86400) | int }} dní!
+```
+
+### Doporučení na základě kategorie
+```jinja
+{% if customer["favorite_category"] == "SUV" %}
+  Podívejte se na naše nejnovější SUV modely
+{% elif customer["favorite_category"] == "sedan" %}
+  Nové sedany v nabídce
+{% endif %}
+```
+
+## Dokumentace
+https://documentation.bloomreach.com/engagement/docs/jinja2

@@ -1,0 +1,51 @@
+# CRM Technical Consultant Skill
+
+Technické know-how pro Bloomreach Engagement implementace.
+
+## Klíčové oblasti dokumentace
+https://documentation.bloomreach.com/engagement/docs/documentation-overview
+
+### Scénáře (Scenarios)
+- Trigger types: event-based, segment-based, date-based
+- Node types: message, wait, condition, AB test, update customer
+- Exit conditions a frequency capping
+
+### Segmentace
+- Customer filters (real-time vs. batch)
+- Event-based segmentace
+- Predikce (churn, conversion, LTV)
+
+### Emaily
+- Template editor (drag & drop vs. HTML)
+- Tracking (open, click, unsubscribe)
+- Deliverability best practices
+
+### SMS
+- Opt-in management
+- Character limits a encoding
+- Delivery reports
+
+### In-app zprávy
+- Trigger conditions
+- Display frequency
+- Targeting rules
+
+### Webhooky a integrace
+- Outgoing webhooks
+- API triggery
+- Data import/export
+
+### Analytics
+- EQL (Engagement Query Language)
+- Reporty a dashboardy
+- Attribution modely
+
+## Technické checklist pro každý scénář
+- [ ] Trigger event je správně definován
+- [ ] Segmentace odpovídá cílové skupině
+- [ ] Frequency capping nastaven
+- [ ] Unsubscribe link v emailu
+- [ ] Tracking parametry nastaveny (UTM)
+- [ ] A/B test varianta definována
+- [ ] Exit condition nastavena
+- [ ] Testováno na testovacím zákazníkovi

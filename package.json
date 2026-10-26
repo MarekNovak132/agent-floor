@@ -1,0 +1,18 @@
+{
+  "name": "agent-floor",
+  "version": "1.0.0",
+  "description": "CRM marketing agent team setup for Claude Code",
+  "bin": {
+    "agent-floor": "./bin/agent-floor.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "keywords": ["claude", "ai", "crm", "bloomreach", "agents"],
+  "author": "MarekNovak132",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  }
+}
