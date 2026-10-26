@@ -5,7 +5,7 @@ CRM marketing agent team pro Claude Code — 7 AI agentů s 30 lety zkušeností
 ## Instalace
 
 ```bash
-npm i -g agent-floor
+npm i -g @marecek132/agent-floor
 ```
 
 Nebo přímo z GitHubu:
