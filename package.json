@@ -1,6 +1,6 @@
 {
   "name": "agent-floor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CRM marketing agent team setup for Claude Code",
   "bin": {
     "agent-floor": "./bin/agent-floor.js"
